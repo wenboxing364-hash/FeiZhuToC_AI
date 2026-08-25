@@ -2,8 +2,9 @@ import { ChevronLeft, MoreHorizontal } from 'lucide-react'
 
 interface HeaderProps {
   onAction: (message: string) => void
+  onMore: () => void
 }
-export function Header({ onAction }: HeaderProps) {
+export function Header({ onAction, onMore }: HeaderProps) {
   return (
     <header className="relative z-20 flex h-[66px] shrink-0 items-center border-b border-[#E8EBEF]/80 bg-white px-3 pt-[env(safe-area-inset-top)]">
       <button
@@ -28,8 +29,8 @@ export function Header({ onAction }: HeaderProps) {
       <button
         type="button"
         className="icon-button ml-auto"
-        aria-label="更多"
-        onClick={() => onAction('更多功能即将开放')}
+        aria-label="旅行设置"
+        onClick={onMore}
       >
         <MoreHorizontal size={22} />
       </button>
