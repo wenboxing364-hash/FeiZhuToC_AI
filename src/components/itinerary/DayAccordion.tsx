@@ -4,13 +4,32 @@ import { Timeline } from './Timeline'
 
 interface DayAccordionProps {
   day: TripDay
+  totalCost: number
+  perPersonCost: number
   expanded: boolean
   onToggle: () => void
 }
 
-export function DayAccordion({ day, expanded, onToggle }: DayAccordionProps) {
+function formatMoney(value: number, maximumFractionDigits = 0) {
+  return new Intl.NumberFormat('zh-CN', { maximumFractionDigits }).format(value)
+}
+
+export function DayAccordion({
+  day,
+  totalCost,
+  perPersonCost,
+  expanded,
+  onToggle,
+}: DayAccordionProps) {
+  const intensityLabel =
+    day.intensity === 'relaxed' ? '轻松' : day.intensity === 'normal' ? '适中' : '紧凑'
   return (
-    <section id={`trip-day-${day.day}`} className="scroll-mt-3 border-t border-[#EEF0F3] first:border-t-0">
+    <section
+      id={`trip-day-${day.day}`}
+      data-area={day.area}
+      data-intensity={day.intensity}
+      className="scroll-mt-3 border-t border-[#EEF0F3] first:border-t-0"
+    >
       <button
         type="button"
         className="flex w-full items-start gap-2 px-4 py-3 text-left transition-colors hover:bg-[#FAFBFC] active:bg-[#F5F7FA]"
@@ -28,9 +47,9 @@ export function DayAccordion({ day, expanded, onToggle }: DayAccordionProps) {
             <p className="mt-1 truncate text-[9px] leading-4 text-[#8A949E]">{day.theme}</p>
           )}
         </div>
-        {day.day === 1 && !expanded ? (
+        {!expanded ? (
           <span className="rounded-full bg-[#EAF8F2] px-2 py-1 text-[9px] font-medium text-[#37B27C]">
-            轻松
+            {intensityLabel}
           </span>
         ) : (
           <ChevronDown
@@ -50,15 +69,24 @@ export function DayAccordion({ day, expanded, onToggle }: DayAccordionProps) {
       >
         <div className="overflow-hidden">
           <Timeline items={day.activities} />
-          <div className="mx-4 mb-3 grid grid-cols-2 rounded-xl bg-[#F7F9FC] px-3 py-2.5">
-            <div>
-              <p className="text-[9px] text-[#8A949E]">预计花费</p>
-              <p className="mt-0.5 text-[12px] font-bold text-[#1677FF]">¥{day.estimatedCost ?? 0} / 人</p>
+          <div
+            data-day-total-cost={totalCost}
+            data-day-per-person-cost={perPersonCost}
+            className="mx-4 mb-3 grid grid-cols-[1.45fr_0.55fr] rounded-xl bg-[#F7F9FC] px-3 py-2.5"
+          >
+            <div className="min-w-0 pr-3">
+              <p className="text-[9px] text-[#8A949E]">当日全部游客预计消费</p>
+              <p className="mt-0.5 text-[19px] font-bold leading-6 text-[#1677FF]">
+                ¥{formatMoney(totalCost)}
+              </p>
+              <p className="mt-0.5 text-[9px] text-[#8A949E]">
+                人均约 ¥{formatMoney(perPersonCost, 2)}
+              </p>
             </div>
-            <div className="border-l border-[#E5EAF0] pl-3">
+            <div className="flex flex-col justify-center border-l border-[#E5EAF0] pl-3">
               <p className="text-[9px] text-[#8A949E]">行程强度</p>
               <p className="mt-0.5 text-[12px] font-semibold text-[#20242A]">
-                {day.intensity === 'relaxed' ? '轻松' : day.intensity === 'normal' ? '适中' : '紧凑'}
+                {intensityLabel}
               </p>
             </div>
           </div>

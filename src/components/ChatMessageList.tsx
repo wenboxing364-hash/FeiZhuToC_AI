@@ -1,6 +1,7 @@
 import type { RefObject } from 'react'
-import { mockTripPlan, preferenceOptions, welcomeSuggestions } from '../data/mockTrip'
-import type { ChatItem } from '../types/trip'
+import { preferenceOptions, welcomeSuggestions } from '../data/mockTrip'
+import type { BudgetSummary } from '../types/pricing'
+import type { ChatItem, TripPlan } from '../types/trip'
 import { AssistantMessage, LoadingMessage, UserMessage } from './chat/MessageBubbles'
 import { PreferenceChips, SuggestionChips } from './chat/SuggestionChips'
 import { ItineraryCard } from './itinerary/ItineraryCard'
@@ -8,6 +9,8 @@ import { TripUpdateCard } from './itinerary/TripUpdateCard'
 
 interface ChatMessageListProps {
   items: ChatItem[]
+  tripPlan?: TripPlan
+  budgetSummary?: BudgetSummary
   isProcessing: boolean
   selectedPreferences: string[]
   expandedDay: number | null
@@ -16,11 +19,14 @@ interface ChatMessageListProps {
   onPreferenceToggle: (value: string) => void
   onPreferenceConfirm: () => void
   onExpandedDayChange: (day: number | null) => void
-  onViewDayTwo: () => void
+  onViewDay: (day: number) => void
+  onViewRoute: () => void
   onAction: (message: string) => void
 }
 export function ChatMessageList({
   items,
+  tripPlan,
+  budgetSummary,
   isProcessing,
   selectedPreferences,
   expandedDay,
@@ -29,7 +35,8 @@ export function ChatMessageList({
   onPreferenceToggle,
   onPreferenceConfirm,
   onExpandedDayChange,
-  onViewDayTwo,
+  onViewDay,
+  onViewRoute,
   onAction,
 }: ChatMessageListProps) {
   return (
@@ -66,17 +73,20 @@ export function ChatMessageList({
             case 'loading':
               return <LoadingMessage key={item.id} content={item.content} />
             case 'itinerary':
-              return (
+              return tripPlan ? (
                 <ItineraryCard
                   key={item.id}
-                  tripPlan={mockTripPlan}
+                  chatItemId={item.id}
+                  tripPlan={tripPlan}
+                  budgetSummary={budgetSummary}
                   expandedDay={expandedDay}
                   onExpandedDayChange={onExpandedDayChange}
+                  onViewRoute={onViewRoute}
                   onAction={onAction}
                 />
-              )
+              ) : null
             case 'trip-update':
-              return <TripUpdateCard key={item.id} onViewDay={onViewDayTwo} />
+              return <TripUpdateCard key={item.id} update={item} onViewDay={onViewDay} />
           }
         })}
         <div ref={endRef} className="h-px" aria-hidden="true" />

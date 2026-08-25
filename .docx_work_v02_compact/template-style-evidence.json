@@ -1,0 +1,168 @@
+{
+  "input": "C:\\Users\\wenbo\\OneDrive\\\u6587\u6863\\ChatGPT\\\u98de\u732aToC_AI\u52a9\u624b\\\u98de\u732aAI\u65c5\u884c\u89c4\u5212\u52a9\u624b_PRD_V0.2.docx",
+  "fonts_by_char_count": {},
+  "direct_run_formatting_runs": 628,
+  "direct_paragraph_formatting_paragraphs": 578,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "PRODUCT REQUIREMENTS DOCUMENT",
+      "style": "Normal"
+    },
+    {
+      "para_index": 2,
+      "text": "\u98de\u732a AI \u65c5\u884c\u89c4\u5212\u52a9\u624b",
+      "style": "Normal"
+    },
+    {
+      "para_index": 132,
+      "text": "\u9879\u76ee",
+      "style": "Normal"
+    },
+    {
+      "para_index": 133,
+      "text": "\u5185\u5bb9",
+      "style": "Normal"
+    },
+    {
+      "para_index": 147,
+      "text": "\u7248\u672c",
+      "style": "Normal"
+    },
+    {
+      "para_index": 148,
+      "text": "\u4fee\u8ba2\u4eba",
+      "style": "Normal"
+    },
+    {
+      "para_index": 149,
+      "text": "\u65e5\u671f",
+      "style": "Normal"
+    },
+    {
+      "para_index": 150,
+      "text": "\u4fee\u8ba2\u5185\u5bb9",
+      "style": "Normal"
+    },
+    {
+      "para_index": 159,
+      "text": "\u9879\u76ee",
+      "style": "Normal"
+    },
+    {
+      "para_index": 160,
+      "text": "\u5b9a\u4e49",
+      "style": "Normal"
+    },
+    {
+      "para_index": 181,
+      "text": "\u75db\u70b9",
+      "style": "Normal"
+    },
+    {
+      "para_index": 182,
+      "text": "\u5177\u4f53\u8868\u73b0",
+      "style": "Normal"
+    },
+    {
+      "para_index": 183,
+      "text": "\u4ea7\u54c1\u673a\u4f1a",
+      "style": "Normal"
+    },
+    {
+      "para_index": 202,
+      "text": "\u8303\u56f4\u5185\uff08\u672c\u671f\u5b9e\u73b0\uff09",
+      "style": "Normal"
+    },
+    {
+      "para_index": 203,
+      "text": "\u8303\u56f4\u5916\uff08\u672c\u671f\u4e0d\u5b9e\u73b0\uff09",
+      "style": "Normal"
+    },
+    {
+      "para_index": 216,
+      "text": "\u4f18\u5148\u7ea7",
+      "style": "Normal"
+    },
+    {
+      "para_index": 217,
+      "text": "\u9700\u6c42",
+      "style": "Normal"
+    },
+    {
+      "para_index": 218,
+      "text": "MVP \u8bf4\u660e",
+      "style": "Normal"
+    },
+    {
+      "para_index": 241,
+      "text": "\u72b6\u6001",
+      "style": "Normal"
+    },
+    {
+      "para_index": 242,
+      "text": "\u7528\u6237\u884c\u4e3a",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "PRODUCT REQUIREMENTS DOCUMENT",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "text": "\u98de\u732a AI \u65c5\u884c\u89c4\u5212\u52a9\u624b",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "text": "To C \u624b\u673a\u7aef\u5355\u9875\u9762\u591a\u76ee\u7684\u5730\u65c5\u884c\u89c4\u5212\u52a9\u624b",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "text": "",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "PRODUCT REQUIREMENTS DOCUMENT",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "\u98de\u732a AI \u65c5\u884c\u89c4\u5212\u52a9\u624b",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "To C \u624b\u673a\u7aef\u5355\u9875\u9762\u591a\u76ee\u7684\u5730\u65c5\u884c\u89c4\u5212\u52a9\u624b",
+        "style": "Normal"
+      },
+      {
+        "para_index": 6,
+        "run_text": "\u6587\u6863\u7528\u9014\uff1a\u7528\u4e8e\u9700\u6c42\u786e\u8ba4\u3001\u624b\u673a\u7aef\u539f\u578b\u8bbe\u8ba1\u3001AI Coding \u5f00\u53d1\u3001Demo \u6d4b\u8bd5\u4e0e\u6f14\u793a\u3002",
+        "style": "Normal"
+      },
+      {
+        "para_index": 132,
+        "run_text": "\u9879\u76ee",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}
